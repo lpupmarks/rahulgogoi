@@ -66,7 +66,8 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       margin-top: 20px;
       margin-bottom: 20px;
-      background-color: #DBC4F0; /* Card background color */
+      background-color: #C0D6E8;
+       /* Card background color */
     }
 
     .card img {
@@ -259,6 +260,7 @@
       </div>
       <!-- Add more books as needed -->
     </div>
+      <div class="totalRead"><footer>Images courtesy of <a href="https://instagram.com/that_complicated_guy/" target="_blank" rel="norefferer noopener">Rahul Gogoi</a><br/>🄯 AB</footer></div>
 
   </div>
 
@@ -288,7 +290,8 @@
         cards.forEach(function(card, index) {
           var cardDate = card.getAttribute('data-date');
           var [cardMonth, cardYear] = cardDate.split(' ');
-          var backgroundColor = index % 2 === 0 ? '#FDCEDF' : index % 3 === 0 ? '#DBC4F0' : '#FFCACC '; // Alternate background colors
+          var colors = ['#FDCEDF', '#DBC4F0', '#FFCACC']; 
+          var backgroundColor = colors[index % colors.length]; 
           
           if ((selectedMonth === cardMonth || selectedMonth === '') && (selectedYear === cardYear || selectedYear === '')) {
             card.style.backgroundColor = backgroundColor;
