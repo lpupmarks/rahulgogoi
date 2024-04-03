@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,6 +104,22 @@
     .hide {
       display: none;
     }
+    #milestonesBtn {
+  display: block;
+  margin: 0 auto;
+}
+.modal {
+  border-radius: 15px;
+}
+
+.modal-content {
+  text-align: center;
+}
+
+p{
+  text-align: justify;
+  font-size: 1.2em;
+}    
   </style>
 </head>
 <body>
@@ -137,6 +152,17 @@
       <label>Filter by Year</label>
     </div>
   <div id="totalBooks" class="totalRead">Total Books Read In The Selected Range: 2</div>
+  <button class="btn waves-effect waves-light center-align" id="milestonesBtn">View Milestones</button>
+<div id="milestonesPopup" class="modal">
+  <div class="modal-content">
+    <h5>Milestones</h5>
+    <p>✅First Book : January 5, 2024
+<br/>✅10th Book : March 15, 2024</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+</div>
     <div class="timeline">
       <!-- Book 1 -->
       <div class="card" data-date="January 2024">
@@ -314,6 +340,19 @@
       monthSelect.dispatchEvent(event);
       yearSelect.dispatchEvent(event);
     });
+    document.addEventListener('DOMContentLoaded', function() {
+  // Initialize the milestones popup
+  var elemsPopup = document.querySelectorAll('.modal');
+  var instancesPopup = M.Modal.init(elemsPopup);
+
+  // Add event listener to the milestones button
+  var milestonesBtn = document.getElementById('milestonesBtn');
+  milestonesBtn.addEventListener('click', function() {
+    var modalInstance = M.Modal.getInstance(document.getElementById('milestonesPopup'));
+    modalInstance.open();
+  });
+});
+
   </script>
 </body>
 </html>
