@@ -57,17 +57,15 @@
       margin-bottom: 20px;
       background-color: #D4E2D4; /* Card background color */
     }
-  .totalRead {
-      text-align: center;
-      align-items: center;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-top: 20px;
-      margin-bottom: 20px;
-      background-color: #C0D6E8;
-       /* Card background color */
-    }
+
+.card:nth-child(even) {
+  flex-direction: row-reverse; 
+}
+
+.card:nth-child(odd) .card-content {
+  text-align: right; 
+}
+
 
     .card img {
       width: 120px;
@@ -101,6 +99,17 @@
       margin-top: 10px;
     }
 
+  .totalRead {
+      text-align: center;
+      align-items: center;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+      margin-bottom: 20px;
+      background-color: #C0D6E8;
+       /* Card background color */
+    }
     .hide {
       display: none;
     }
