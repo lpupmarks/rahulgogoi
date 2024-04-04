@@ -110,6 +110,19 @@
       background-color: #C0D6E8;
        /* Card background color */
     }
+    
+  #mile {
+    display: none; 
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      background-color: #D4E2D4;
+      z-index: 1;
+    
+}
     .hide {
       display: none;
     }
@@ -120,7 +133,6 @@
 .modal {
   border-radius: 15px;
 }
-007bff
 .modal-content {
   text-align: center;
 }
@@ -266,6 +278,7 @@ p{
           <div class="card-description"><a href="https://www.instagram.com/p/C4hoH91v_Bd/" target="_blank" rel="noopener norefferer">Instagram Post</a><br/>10/100</div>
         </div>
       </div>
+      <div id="mile" class="cardMile"><img src="./images/shield.webp"alt="10 Books Shield Image" style="width: 80px; height: 80px; margin: 0 auto;"><h5>10 Books Completed!</h5></div>
 <div class="card" data-date="March 2024">
         <img src="./images/11.webp" alt="Book Cover 11">
         <div class="card-content">
@@ -295,7 +308,7 @@ p{
       </div>
       <!-- Add more books as needed -->
     </div>
-      <div class="totalRead"><footer>Images courtesy of <a href="https://instagram.com/that_complicated_guy/" target="_blank" rel="norefferer noopener">Rahul Gogoi</a><br/>🄯 AB</footer></div>
+      <div class="totalRead"><footer><b>Images courtesy of <a href="https://instagram.com/that_complicated_guy/" target="_blank" rel="norefferer noopener">Rahul Gogoi</a><br/><small>[Images were edited as per the requirements of the page.]</small><br/>🄯 AB</b></footer></div>
 
   </div>
 
@@ -315,34 +328,43 @@ p{
       monthSelect.addEventListener('change', filterBooks);
       yearSelect.addEventListener('change', filterBooks);
 
-      function filterBooks() {
-        var selectedMonth = monthSelect.value;
-        var selectedYear = yearSelect.value;
+ function filterBooks() {
+    var selectedMonth = monthSelect.value;
+    var selectedYear = yearSelect.value;
 
-        var cards = document.querySelectorAll('.card');
-        var visibleCardsCount = 0;
+    var cards = document.querySelectorAll('.card');
+    var visibleCardsCount = 0;
+
+    cards.forEach(function(card, index) {
+        var cardDate = card.getAttribute('data-date');
+        var [cardMonth, cardYear] = cardDate.split(' ');
+        var colors = ['#FDCEDF', '#DBC4F0', '#FFCACC']; 
+        var backgroundColor = colors[index % colors.length]; 
         
-        cards.forEach(function(card, index) {
-          var cardDate = card.getAttribute('data-date');
-          var [cardMonth, cardYear] = cardDate.split(' ');
-          var colors = ['#FDCEDF', '#DBC4F0', '#FFCACC']; 
-          var backgroundColor = colors[index % colors.length]; 
-          
-          if ((selectedMonth === cardMonth || selectedMonth === '') && (selectedYear === cardYear || selectedYear === '')) {
+        if ((selectedMonth === cardMonth || selectedMonth === '') && (selectedYear === cardYear || selectedYear === '')) {
             card.style.backgroundColor = backgroundColor;
             card.classList.remove('hide');
             visibleCardsCount++;
-          } else {
+        } else {
             card.style.backgroundColor = '#fff'; // Reset background color
             card.classList.add('hide');
-          }
-        });
-
-        var totalBooksElement = document.getElementById('totalBooks');
-        if (totalBooksElement) {
-          totalBooksElement.textContent = "Total Books Read In The Selected Date Range: " + visibleCardsCount;
         }
-      }
+    });
+
+    var totalBooksElement = document.getElementById('totalBooks');
+    if (totalBooksElement) {
+        totalBooksElement.textContent = "Total Books Read In The Selected Date Range: " + visibleCardsCount;
+    }
+
+    // Show or hide the 'mile' div based on whether a filter is applied or not
+    var mileDiv = document.getElementById('mile');
+    if (selectedMonth === '' && selectedYear === '') {
+        mileDiv.style.display = 'block'; // Show the div
+    } else {
+        mileDiv.style.display = 'none'; // Hide the div
+    }
+}
+
 
       // Trigger the change event initially to calculate the total number of books
       var event = new Event('change');
