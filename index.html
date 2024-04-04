@@ -4,25 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Books Read Timeline</title>
-  <!-- Materialize CSS -->
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <style>
-    /* Background fill for the whole page */
+
     body {
-      background-color: #FAF3F0; /* Adjust as needed */
+      background-color: #FAF3F0;
       margin: 0;
       padding: 0;
     }
     .input-field label{
-      color: #AE0098; /* Change label text color here */
+      color: #AE0098;
     }
     
-  option {
-      color: #AE6521; /* Change option text color */
-    }
-
-    /* Rest of the CSS styles */
     .container {
       padding: 20px;
       border-radius: 10px;
@@ -55,7 +50,7 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       margin-top: 40px;
       margin-bottom: 20px;
-      background-color: #D4E2D4; /* Card background color */
+      background-color: #D4E2D4;
     }
 
 .card:nth-child(even) {
@@ -108,7 +103,6 @@
       margin-top: 20px;
       margin-bottom: 20px;
       background-color: #C0D6E8;
-       /* Card background color */
     }
     
   #mile {
@@ -168,7 +162,7 @@ p{
         <option value="" selected>All Years</option>
         <option value="2024">2024</option>
         <option value="2025">2025</option>
-        <!-- Add more years as needed -->
+
       </select>
       <label>Filter by Year</label>
     </div>
@@ -177,15 +171,15 @@ p{
 <div id="milestonesPopup" class="modal">
   <div class="modal-content" style="text-align: center;">
     <img src="./images/flag.svg" alt="Milestones Image" style="width: 80px; height: 80px; margin: 0 auto;">
-    <p>🟢 First Book : January 5, 2024
-<br/>🟢 10th Book : March 15, 2024</p>
+    <p><img src="./images/shield.webp"alt="Shield Image" style="width: 20px; height: 20px; margin: 0 auto; vertical-align: middle;"><span style="vertical-align: middle;">First Book : January 5, 2024</span>
+<br/><img src="./images/shield.webp"alt="Shield Image" style="width: 20px; height: 20px; margin: 0 auto; vertical-align: middle;"><span style="vertical-align: middle;">10th Book : March 15, 2024</span></p>
   </div>
   <div class="modal-footer">
     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
   </div>
 </div>
     <div class="timeline">
-      <!-- Book 1 -->
+
       <div class="card" data-date="January 2024">
         <img src="./images/1.webp" alt="Book Cover 1">
         <div class="card-content">
@@ -196,7 +190,6 @@ p{
         </div>
       </div>
 
-      <!-- Book 2 -->
       <div class="card" data-date="January 2024">
         <img src="./images/2.webp" alt="Book Cover 2">
         <div class="card-content">
@@ -306,13 +299,12 @@ p{
           <div class="card-description"><a href="https://www.instagram.com/p/C5S_JVpPhvG/" target="_blank" rel="noopener norefferer">Instagram Post</a><br/>13/100</div>
         </div>
       </div>
-      <!-- Add more books as needed -->
+
     </div>
       <div class="totalRead"><footer><b>Images courtesy of <a href="https://instagram.com/that_complicated_guy/" target="_blank" rel="norefferer noopener">Rahul Gogoi</a><br/><small>[Images were edited as per the requirements of the page.]</small><br/>🄯 AB</b></footer></div>
 
   </div>
 
-  <!-- Materialize JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
  <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -346,7 +338,7 @@ p{
             card.classList.remove('hide');
             visibleCardsCount++;
         } else {
-            card.style.backgroundColor = '#fff'; // Reset background color
+            card.style.backgroundColor = '#fff'; 
             card.classList.add('hide');
         }
     });
@@ -356,27 +348,25 @@ p{
         totalBooksElement.textContent = "Total Books Read In The Selected Date Range: " + visibleCardsCount;
     }
 
-    // Show or hide the 'mile' div based on whether a filter is applied or not
+
     var mileDiv = document.getElementById('mile');
     if (selectedMonth === '' && selectedYear === '') {
-        mileDiv.style.display = 'block'; // Show the div
+        mileDiv.style.display = 'block'; 
     } else {
-        mileDiv.style.display = 'none'; // Hide the div
+        mileDiv.style.display = 'none'; 
     }
 }
 
-
-      // Trigger the change event initially to calculate the total number of books
       var event = new Event('change');
       monthSelect.dispatchEvent(event);
       yearSelect.dispatchEvent(event);
     });
     document.addEventListener('DOMContentLoaded', function() {
-  // Initialize the milestones popup
+
   var elemsPopup = document.querySelectorAll('.modal');
   var instancesPopup = M.Modal.init(elemsPopup);
 
-  // Add event listener to the milestones button
+
   var milestonesBtn = document.getElementById('milestonesBtn');
   milestonesBtn.addEventListener('click', function() {
     var modalInstance = M.Modal.getInstance(document.getElementById('milestonesPopup'));
