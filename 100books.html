@@ -149,7 +149,24 @@
   text-align: justify;
   font-size: 1.2em;
   } 
+  
+@keyframes spin {
+        0% {
+            transform: rotateY(0deg);
+        }
+     100% {
+            transform: rotateY(1080deg);
+        }
+    }
 
+    #shieldImage {
+        cursor: pointer;
+        transition: transform 200ms;
+    }
+
+    #shieldImage.spinning {
+        animation: spin 1050ms ease-out;
+    }
   </style>
 </head>
 <body>
@@ -286,7 +303,7 @@
           <div class="card-description"><a href="https://www.instagram.com/p/C4hoH91v_Bd/" target="_blank" rel="noopener norefferer">Instagram Post</a><br/>10/100</div>
         </div>
       </div>
-      <div id="mile" class="cardMile"><img src="./images/shield.webp"alt="10 Books Shield Image" style="width: 80px; height: 80px; margin: 0 auto;" onclick="playAudio()"><h5>10 Books Completed!</h5></div>
+      <div id="mile" class="cardMile"><img id="shieldImage" src="./images/shield.webp"alt="10 Books Shield Image" style="width: 80px; height: 80px; margin: 0 auto;" onclick="playAudio()"><h5>10 Books Completed!</h5></div>
 <div class="card" data-date="March 2024">
         <img src="./images/11.webp" alt="Book Cover 11">
         <div class="card-content">
@@ -337,10 +354,16 @@ var audio;
     }
 
     function playAudio() {
+      var image = document.getElementById('shieldImage');
+    image.classList.add('spinning');
+    setTimeout(function () {
+        image.classList.remove('spinning');
+    }, 3000);
       if (audio) {
         audio.play();
       }
     }
+  
 </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
