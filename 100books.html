@@ -148,7 +148,8 @@
     p{
   text-align: justify;
   font-size: 1.2em;
-  }    
+  } 
+
   </style>
 </head>
 <body>
@@ -285,7 +286,7 @@
           <div class="card-description"><a href="https://www.instagram.com/p/C4hoH91v_Bd/" target="_blank" rel="noopener norefferer">Instagram Post</a><br/>10/100</div>
         </div>
       </div>
-      <div id="mile" class="cardMile"><img src="./images/shield.webp"alt="10 Books Shield Image" style="width: 80px; height: 80px; margin: 0 auto;"><h5>10 Books Completed!</h5></div>
+      <div id="mile" class="cardMile"><img src="./images/shield.webp"alt="10 Books Shield Image" style="width: 80px; height: 80px; margin: 0 auto;" onclick="playAudio()"><h5>10 Books Completed!</h5></div>
 <div class="card" data-date="March 2024">
         <img src="./images/11.webp" alt="Book Cover 11">
         <div class="card-content">
@@ -318,6 +319,20 @@
       <div class="totalRead"><footer><b>Images courtesy of <a href="https://instagram.com/that_complicated_guy/" target="_blank" rel="norefferer noopener">Rahul Gogoi</a>.<br/><small>[Images were edited as per the requirements of the page.]</small><br/>🄯 AB</b></footer></div>
 
   </div>
+<script>
+var audio;
+
+    window.onload = function() {
+
+      audio = new Audio('./images/shieldSound.mp3');
+    }
+
+    function playAudio() {
+      if (audio) {
+        audio.play();
+      }
+    }
+</script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
  <script>
