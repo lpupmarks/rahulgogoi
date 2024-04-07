@@ -41,17 +41,26 @@
       margin-left: -1px;
     }
 
-    .card {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-top: 40px;
-      margin-bottom: 20px;
-      background-color: #D4E2D4;
-    }
+  .card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  margin-bottom: 20px;
+  background-color: #D4E2D4;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.card.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
     .card:nth-child(even) {
   flex-direction: row-reverse; 
@@ -363,6 +372,34 @@ var audio;
         audio.play();
       }
     }
+document.addEventListener("DOMContentLoaded", function() {
+  const timeline = document.querySelector('.timeline');
+  const cards = timeline.querySelectorAll('.card');
+
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.bottom >= 0 &&
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 1.2
+    );
+  }
+
+  function animateIfVisible() {
+    cards.forEach(card => {
+      if (isInViewport(card)) {
+        card.classList.add('animate');
+      }
+    });
+  }
+
+  document.addEventListener('scroll', animateIfVisible);
+  window.addEventListener('resize', animateIfVisible);
+  
+  animateIfVisible(); 
+});
+
+
   
 </script>
 
