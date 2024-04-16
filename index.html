@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embedded Webpage</title>
+    <title>Rahul Reviews Books</title>
     <style>
         body, html {
             margin: 0;
@@ -22,5 +22,23 @@
 </head>
 <body>
     <iframe src="https://lpupmarks.github.io/" frameborder="0" scrolling="yes"></iframe>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function displayPopup() {
+            setTimeout(function() {
+                Swal.fire({
+                    title: '',
+                    html: 'I have taken a challange to read 100 books.<br/><a href="./100 books.html"  target="_blank" rel="noopener norefferer">Click here</a> to see the timeline of the progress made so far.',
+                    icon: 'info',
+                    showCloseButton: true,
+                    showConfirmButton: false
+                });
+            }, 2500); 
+        }
+
+        // Call the function on page load
+        window.onload = displayPopup;
+    </script>
 </body>
 </html>
