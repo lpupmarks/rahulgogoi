@@ -141,17 +141,24 @@
       margin-bottom: 20px;
       background-color: #C0D6E8;
     }
-    .homepage {
-      text-align: center;
-      align-items: center;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-top: 10px;
-      margin-bottom: 10px;
-      background-color: white;
-    }
-    
+  div.homepage {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0; 
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: white;
+  z-index: 2;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
   #mile {
     display: none; 
       text-align: center;
