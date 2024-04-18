@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,7 +142,24 @@
       margin-bottom: 20px;
       background-color: #C0D6E8;
     }
-    
+  div.homepage {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0; 
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: white;
+  z-index: 2;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
   #mile {
     display: none; 
       text-align: center;
@@ -186,7 +204,8 @@
   text-align: justify;
   font-size: 1.2em;
   } 
-  
+
+
 @keyframes spin {
         0% {
             transform: rotateY(0deg);
@@ -237,6 +256,9 @@
       </select>
       <label>Filter by Year</label>
     </div>
+  <div class="homepage"><a href="https://rahulgogoi.vercel.app" target="_blank" rel="noreferrer noopener" style="
+text-decoration:none; font-size:1.2em; font-weight:bold; color:navy;
+">🏠 Homepage</a></div>
   <div id="totalBooks" class="totalRead">Total Books Read In The Selected Range: 2</div>
   <button class="btn waves-effect waves-light center-align" id="milestonesBtn"><img src="./images/shield.webp"alt="Shield Image" style="width: 25px; height: 25px; margin: 0 auto; vertical-align: middle;"><span2 style="vertical-align: middle;">View Milestones</span2></button>
 <div id="milestonesPopup" class="modal">
@@ -386,6 +408,15 @@
           <div class="card-title">জাল কটা জুই</div>
         <div class="card-author">নয়নজ্যোতি শৰ্মা</div>
           <div class="card-description"><a href="https://www.instagram.com/p/C5pvBHHoRJb/" target="_blank" rel="noopener norefferer">Instagram Post</a><br/>15/100</div>
+        </div>
+      </div>
+            <div class="card" data-date="April 2024">
+        <img src="./images/16.webp" alt="Book Cover 16">
+        <div class="card-content">
+          <div class="card-date">April 17, 2024</div>
+          <div class="card-title">মামণি ৰয়ছম গোস্বামীৰ প্ৰিয় গল্প</div>
+        <div class="card-author"></div>
+          <div class="card-description"><a href="https://www.instagram.com/p/C52mWOkvQIi/" target="_blank" rel="noopener norefferer">Instagram Post</a><br/>16/100</div>
         </div>
       </div>
     </div>
