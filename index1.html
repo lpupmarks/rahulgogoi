@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embedded Webpage</title>
+    <title>Rahul Reviews Books</title>
     <style>
         body, html {
             margin: 0;
@@ -17,10 +17,33 @@
             border: none;
             width: 100%;
             height: 100%;
+            
         }
     </style>
 </head>
 <body>
-    <iframe src="https://lpupmarks.github.io/" frameborder="0" scrolling="yes"></iframe>
+    <iframe src="https://lpupmarks.github.io/" frameborder="0" scrolling="yes"id="iframe"></iframe>
 </body>
+<script>
+window.onload = function() {
+  var iframe = document.getElementById('iframe');
+  iframe.contentWindow.document.addEventListener('contextmenu', function(event) {
+    event.preventDefault(); // Prevent right-click menu
+  });
+
+  iframe.contentWindow.document.addEventListener('touchstart', function(event) {
+    var currentTime = new Date().getTime();
+    var tapLength = currentTime - lastTap;
+    clearTimeout(timeout);
+    if (tapLength < 500 && tapLength > 0) {
+      event.preventDefault();
+    } else {
+      timeout = setTimeout(function() {
+        clearTimeout(timeout);
+      }, 500);
+    }
+    lastTap = currentTime;
+  });
+};
+</script>
 </html>
