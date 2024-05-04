@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,44 +14,49 @@
       margin: 0;
       padding: 0;
     }
-.loader {
-  border: 4px solid rgba(0, 0, 0, 0.1);
-  border-top: 4px solid #007bff; /* Change the color to match your design */
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000; /* Ensure it's above other content */
+    .header {
+            background-color: #FAF3F0;
+            color: black;
+            padding: 10px 0;
+            padding-bottom: 10px; 
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .header .logo {
+            margin-right: 20px;
+        }
+        .header .logo img {
+            max-height: 40px;
+        }
+        .header .title {
+            font-size: 1.3rem;
+  font-weight: bold;
+  color: black;
+  text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+    0px 0px 20px #b393d3;
 }
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.container.loaded .loader {
-  display: none; /* Hide the loader when container has 'loaded' class */
-}
-
-
-    .input-field label{
-      color: #AE0098;
-    }
-    
-    .container {
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
+        }
+        @media (max-width: 768px) {
+            .header .title {
+                font-size: 16px;
+            }
+        }
+        .container {
+            padding: 20px;
+            margin-top: 80px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .input-field label {
+            color: #AE0098;
+        }
+ 
     .timeline {
       position: relative;
       display: flex;
@@ -207,10 +211,65 @@
     #shieldImage.spinning {
         animation: spin 1050ms ease-out;
     }
+    
+  
+
+.progress-container {
+  margin-bottom: 70px;
+  box-shadow: 0 4px 5px rgb(0, 0, 0, 0.1)
+}
+
+.progress-container, .progress {
+  background-color: #eee;
+  border-radius: 5px;
+  position: relative;
+  height: 7px;
+  width: 300px;
+}
+
+.progress {
+  background-color: #6F39B0;
+  width: 0;
+  transition: width 0.4s linear;
+}
+
+.percentage {
+  background-color: #6F39B0;
+  border-radius: 5px;
+  box-shadow: 0 4px 5px rgb(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 12px;
+  padding: 4px;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  transform: translateX(-50%);
+  width: 40px;
+  text-align: center;
+  transition: left 0.4s linear;
+}
+
+.percentage::after {
+  background-color: #6F39B0;
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  height: 10px;
+  width: 10px;
+  z-index: -1;
+}
   </style>
 </head>
 <body>
-
+    <div class="header">
+        <div class="logo">
+            <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L2pvYjY4NC0wNjktcF8xLnBuZw.png" alt="Logo">
+        </div>
+        <div class="title">Hooked With Books</div>
+    </div>
+  
   <div class="container">
     <div class="loader"></div>
     <div class="input-field col s12">
@@ -410,7 +469,7 @@
           <div class="card-description"><a href="https://www.instagram.com/p/C5-OeUjPw4M/" target="_blank" rel="noopener norefferer">Instagram Post</a><br/>17/100</div>
         </div>
       </div>
-     <div class="card" data-date="April 2024">
+           <div class="card" data-date="April 2024">
         <img src="./images/18.webp" alt="Book Cover 18">
         <div class="card-content">
           <div class="card-date">April 23, 2024</div>
@@ -436,7 +495,7 @@
         <div class="card-author">হৰিশ সোণোৱাল, প্ৰশান্ত কুমাৰ দাস</div>
           <div class="card-description"><a href="https://www.instagram.com/p/C6arZ5uPFTQ/" target="_blank" rel="noopener norefferer">Instagram Post</a><br/>20/100</div>
         </div>
-      </div> 
+      </div>
     </div>
       <div class="totalRead"><footer><b>Images courtesy of <a href="https://instagram.com/that_complicated_guy/" target="_blank" rel="norefferer noopener">Rahul Gogoi</a>.<br/><small>[Images were edited as per the requirements of the page.]</small><br/>🄯 AB</b></footer></div>
 
@@ -566,5 +625,20 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
   </script>
+  <script>const progressContainer = document.querySelector('.progress-container');
+
+// initial call
+setPercentage();
+
+function setPercentage() {
+  const percentage = progressContainer.getAttribute('data-percentage') + '%';
+  
+  const progressEl = progressContainer.querySelector('.progress');
+  const percentageEl = progressContainer.querySelector('.percentage');
+  
+  progressEl.style.width = percentage;
+  percentageEl.innerText = percentage;
+  percentageEl.style.left = percentage;
+}</script>
 </body>
 </html>
