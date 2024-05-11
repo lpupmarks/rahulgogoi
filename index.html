@@ -704,7 +704,7 @@ document.getElementById("averageDays").innerText = "On average, the remaining " 
 
             const formattedDate = endDate.toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'});
 
-            document.getElementById('resultFore').innerHTML = `As of now, one book is being finished reading every ${readingPace.toFixed(2)} days. 
+            document.getElementById('resultFore').innerHTML = `As of now, one book is finished being read every ${readingPace.toFixed(2)} days. 
             There are ${booksLeft} books left, at the current pace  it would require  ${daysToReadLeft.toFixed(3)} days to read them.
             Which would be completed by ${formattedDate}, approx.`;
         });
