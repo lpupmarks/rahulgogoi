@@ -537,7 +537,11 @@
   <div class="progress"></div>
   <div class="percentage">0%</div>
 </div>
-<p id="averageDays" style="color:navy;"></p></div>
+
+<details><summary style="color:navy;">Reading Pace Stats</summary><p id="averageDays" style="color:navy;"></p>
+<p id="resultFore" style="color:navy; text-align:justify-left;"></p></details>
+
+</div>
 
       <div class="totalRead"><footer><b>Images courtesy of <a href="https://instagram.com/that_complicated_guy/" target="_blank" rel="norefferer noopener">Rahul Gogoi</a>.<br/><small>[Images were edited as per the requirements of the page.]</small><br/>🄯 AB</b></footer></div>
 
@@ -684,6 +688,27 @@ document.getElementById("averageDays").innerText = "On average, the remaining " 
 });
 
   </script>
+  
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentDate = new Date();
+            const yearStart = new Date(currentDate.getFullYear(), 0, 0);
+            const daysGone = Math.floor((currentDate - yearStart) / (1000 * 60 * 60 * 24));
+
+            const booksRead = 22;
+            const readingPace = daysGone / booksRead;
+
+            const booksLeft = Math.floor(100 - booksRead);
+            const daysToReadLeft = booksLeft * readingPace;
+            const endDate = new Date(currentDate.getTime() + daysToReadLeft * 24 * 60 * 60 * 1000);
+
+            const formattedDate = endDate.toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'});
+
+            document.getElementById('resultFore').innerHTML = `As of now, one book is being finished reading every ${readingPace.toFixed(2)} days. 
+            There are ${booksLeft} books left, at the current pace  it would require  ${daysToReadLeft.toFixed(3)} days to read them.
+            Which would be completed by ${formattedDate}, approx.`;
+        });
+    </script>
   <script>const progressContainer = document.querySelector('.progress-container');
 
 // initial call
