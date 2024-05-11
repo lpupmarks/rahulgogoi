@@ -536,7 +536,8 @@
     <div><p style="font-size:1.2rem; color:#663399;">Total Progress:</p><div class="progress-container" data-percentage='22'>
   <div class="progress"></div>
   <div class="percentage">0%</div>
-</div></div>
+</div>
+<p id="averageDays" style="color:navy;"></p></div>
 
       <div class="totalRead"><footer><b>Images courtesy of <a href="https://instagram.com/that_complicated_guy/" target="_blank" rel="norefferer noopener">Rahul Gogoi</a>.<br/><small>[Images were edited as per the requirements of the page.]</small><br/>🄯 AB</b></footer></div>
 
@@ -596,9 +597,21 @@ document.addEventListener("DOMContentLoaded", function() {
   
   animateIfVisible(); 
 });
+</script>
+<script>
+// Number of books to read
+var numberOfBooks = 78;
 
+// Number of days left in 2024
+var currentDate = new Date();
+var endOfYear = new Date(currentDate.getFullYear(), 11, 31); // December is 11 because months are 0-indexed
+var daysLeft = Math.floor((endOfYear - currentDate) / (1000 * 60 * 60 * 24));
 
-  
+// Calculate average days required to read the books
+var averageDays = daysLeft / numberOfBooks;
+
+// Display average days required with two decimal places
+document.getElementById("averageDays").innerText = "On average, the remaining " + numberOfBooks + " books must be read with a reading pace of " + averageDays.toFixed(3) + " days per book, with " + daysLeft + " days left in 2024.";
 </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
