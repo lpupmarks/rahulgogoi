@@ -605,7 +605,7 @@ var numberOfBooks = 78;
 // Number of days left in 2024
 var currentDate = new Date();
 var endOfYear = new Date(currentDate.getFullYear(), 11, 31); // December is 11 because months are 0-indexed
-var daysLeft = Math.floor((endOfYear - currentDate) / (1000 * 60 * 60 * 24));
+var daysLeft = Math.floor(((endOfYear - currentDate) / (1000 * 60 * 60 * 24))+1);
 
 // Calculate average days required to read the books
 var averageDays = daysLeft / numberOfBooks;
