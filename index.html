@@ -723,10 +723,10 @@ document.getElementById("averageDays").innerText = "On average, the remaining " 
 
             const formattedDate = endDate.toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'});
 
-            document.getElementById('resultFore').innerHTML = `As of now, one book is finished being read every ${readingPace.toFixed(2)} days. 
-            There are ${booksLeft} books left, at the current pace  it would require  ${daysToReadLeft.toFixed(3)} days to read them.
-            Which would be completed by ${formattedDate}, approx.
-            At the current pace, a total of ${estimatedNumber} books would be finished by 2024.`;
+            document.getElementById('resultFore').innerHTML = `Currently, one book is read every ${readingPace.toFixed(2)} days. 
+            With ${booksLeft} books left, it would take ${daysToReadLeft.toFixed(3)} days to finish them, completing around
+             ${formattedDate}.
+            By the end of 2024, ${estimatedNumber} books books would be read at this pace.`;
         });
     </script>
   <script>const progressContainer = document.querySelector('.progress-container');
