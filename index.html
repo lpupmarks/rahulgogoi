@@ -561,10 +561,11 @@
           <div class="card-description"><a href="https://www.instagram.com/p/C7BTu3MPWRg/" target="_blank" rel="noopener norefferer">Instagram Post</a><br/>25/100</div>
         </div>
       </div>
-            <div id="mile" class="cardMile"><img id="shieldImage" src="./images/shield.webp"alt="10 Books Shield Image" style="width: 80px; height: 80px; margin: 0 auto;" onclick="playAudio()"><h5>10 Books Completed!</h5></div>
+  
       <div id="mile" class="cardMile"><img id="shieldImage" src="./images/shield.webp"alt="25 Books Shield Image" style="width: 80px; height: 80px; margin: 0 auto;" onclick="playAudio()"><h5>25 Books Completed!</h5></div>
     </div>
-    <div><p style="font-size:1.2rem; color:#663399;">Total Progress:</p><div class="progress-container" data-percentage='25'>
+    <div>
+      <p style="font-size:1.2rem; color:#663399;">Total Progress:</p><div class="progress-container" data-percentage='25'>
   <div class="progress"></div>
   <div class="percentage">0%</div>
 </div>
@@ -691,14 +692,18 @@ document.getElementById("averageDays").innerText = "On average, the remaining " 
         totalBooksElement.textContent = "Total Books Read In The Selected Date Range: " + visibleCardsCount;
     }
 
-
-    var mileDiv = document.getElementById('mile');
+    var mileDivs = document.querySelectorAll('.cardMile');
     if (selectedMonth === '' && selectedYear === '') {
-        mileDiv.style.display = 'block'; 
+        mileDivs.forEach(function(mileDiv) {
+            mileDiv.style.display = 'block'; 
+        });
     } else {
-        mileDiv.style.display = 'none'; 
+        mileDivs.forEach(function(mileDiv) {
+            mileDiv.style.display = 'none'; 
+        });
     }
 }
+
 
       var event = new Event('change');
       monthSelect.dispatchEvent(event);
